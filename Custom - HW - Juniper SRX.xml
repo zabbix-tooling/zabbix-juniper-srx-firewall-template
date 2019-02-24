@@ -931,7 +931,7 @@
                         <item_prototype>
                             <name>{#SNMPVALUE} - Outbound traffic</name>
                             <type>4</type>
-                            <snmp_community>public</snmp_community>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <snmp_oid>1.3.6.1.2.1.2.2.1.16.{#SNMPINDEX}</snmp_oid>
                             <key>1.3.6.1.2.1.2.2.1.16.[{#SNMPINDEX}]</key>
                             <delay>120</delay>
