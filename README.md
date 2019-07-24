@@ -34,4 +34,4 @@ Tested with the following hardware:
 
 All suggestions, edits, ideas and merge request are welcome!
 
-A documentation of the monitoring capabilities can be reviewed by this [html-documentation](http://htmlpreview.github.io/?https://github.com/vico-research-and-consulting/zabbix-juniper-srx-firewall-template/blob/master/documentation/Custom_-_HW_-_Juniper_SRX.html).
+A documentation of the monitoring capabilities can be reviewed by this [html-documentation](http://htmlpreview.github.io/?https://github.com/zabbix-tooling/zabbix-juniper-srx-firewall-template/blob/master/documentation/Custom_-_HW_-_Juniper_SRX.html).
