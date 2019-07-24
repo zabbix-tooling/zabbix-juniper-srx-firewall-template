@@ -16,6 +16,7 @@ Monitors the following items:
 * Flow sessions (max, current and available)
 * Device temperature
 * Interfaces
+  * Use interface names and description in triggers and graphs
 	* Inbound discarded packets
 	* Inbound errors
 	* Inbound traffic
@@ -29,7 +30,8 @@ Tested with the following hardware:
 
 * SRX1400
 * SRX240
-*  SRX210
+* SRX210
 
 All suggestions, edits, ideas and merge request are welcome!
 
+A documentation of the monitoring capabilities can be reviewed by this [html-documentation](http://htmlpreview.github.io/?https://github.com/vico-research-and-consulting/zabbix-juniper-srx-firewall-template/blob/master/documentation/Custom_-_HW_-_Juniper_SRX.html).
