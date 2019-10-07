@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2019-07-24T12:31:47Z</date>
+    <date>2019-10-07T06:35:04Z</date>
     <groups>
         <group>
             <name>Networking Hardware</name>
@@ -773,16 +773,16 @@
                         <formula/>
                         <conditions>
                             <condition>
-                                <macro>{#IFADMINSTATUS}</macro>
-                                <value>(1|3)</value>
-                                <operator>8</operator>
-                                <formulaid>A</formulaid>
-                            </condition>
-                            <condition>
                                 <macro>{#SNMPVALUE}</macro>
                                 <value>^(fe|ge|xe)-[0-9]+\/[0-9]+\/[0-9]+\.[0-9]+$|^(fe|ge|xe)-[0-9]+\/[0-9]+\/[0-9]+$|^(ae|reth|st)[0-9]+\.[0-9]+$|^(ae|reth|st)[0-9]$|^vcp-[0-9]+$|^vlan.[0-9]+$</value>
                                 <operator>8</operator>
                                 <formulaid>B</formulaid>
+                            </condition>
+                            <condition>
+                                <macro>{#IFADMINSTATUS}</macro>
+                                <value>(1|3)</value>
+                                <operator>8</operator>
+                                <formulaid>A</formulaid>
                             </condition>
                         </conditions>
                     </filter>
@@ -1666,42 +1666,10 @@ Review Device type</description>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxOperatingTemp.9.2.0.0.min(5m)}&gt;65</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>High CPU temperature on for node 1</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>2</priority>
-            <description/>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
             <expression>{Custom - HW - Juniper SRX:jnxOperatingTemp.9.1.0.0.min(15m)}&gt;65</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
-            <name>High CPU temperature on {HOSTNAME} node 0</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description/>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxOperatingTemp.9.1.0.0.min(60)}&gt;65</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>High CPU temperature on {HOSTNAME} node 0</name>
+            <name>High CPU temperature node 0</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
@@ -1717,7 +1685,7 @@ Review Device type</description>
             <expression>{Custom - HW - Juniper SRX:jnxOperatingTemp.9.2.0.0.min(15m)}&gt;65</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
-            <name>High CPU temperature on {HOSTNAME} node 1</name>
+            <name>High CPU temperature node 1</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
@@ -1730,15 +1698,15 @@ Review Device type</description>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxOperatingTemp.9.2.0.0.min(60)}&gt;65</expression>
+            <expression>{Custom - HW - Juniper SRX:jnxOperatingTemp.9.2.0.0.min(5m)}&gt;65</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
-            <name>High CPU temperature on {HOSTNAME} node 1</name>
+            <name>High CPU temperature on for node 1</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
             <status>0</status>
-            <priority>3</priority>
+            <priority>2</priority>
             <description/>
             <type>0</type>
             <manual_close>0</manual_close>
@@ -1951,7 +1919,7 @@ Review system logs</description>
             <expression>{Custom - HW - Juniper SRX:jnxRedAlarmState.last(0)}&lt;&gt;2</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
-            <name>Red alarm on {HOSTNAME}</name>
+            <name>Red alarm</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
@@ -1967,7 +1935,7 @@ Review system logs</description>
             <expression>{Custom - HW - Juniper SRX:Uptime.last()}&lt;600</expression>
             <recovery_mode>2</recovery_mode>
             <recovery_expression/>
-            <name>system has been restarted</name>
+            <name>System has been restarted</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
@@ -1984,199 +1952,13 @@ Confirm restart by manual close.</description>
             <expression>{Custom - HW - Juniper SRX:jnxYellowAlarmState.last(0)}&lt;&gt;2</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
-            <name>Yellow alarm on {HOSTNAME}</name>
+            <name>Yellow alarm</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>2</priority>
             <description/>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
-            <expression>{Custom - HW - Juniper SRX:Uptime.last(0)}&lt;600</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>{HOSTNAME} Has just been restarted</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description/>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxJsSPUMonitoringCPUUsage.0.min(60)}&gt;95</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>{HOSTNAME} node 0 high PFE CPU usage</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description>&gt;95% Device responsiveness for transit traffic is likely to be impacted including session buildup&#13;
-&#13;
-Actions:&#13;
-Review Traffic pattern&#13;
-Review PPS&#13;
-Review Session&#13;
-counts</description>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxJsSPUMonitoringMemoryUsage.0.min(30)}&gt;95</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>{HOSTNAME} node 0 high PFE memory usage</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description>&gt;95%  Transit traffic may be impacted due to inability for forwarding operations&#13;
-&#13;
-Actions:&#13;
-Review system logs&#13;
-Verify configuration for unused features that be removed&#13;
-Disable non needed ALGs</description>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxOperatingCPU.9.1.0.0.min(60)}&gt;95</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>{HOSTNAME} node 0 high RE CPU usage</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description>&gt;95% Device responsiveness for self traffic is likely to be impacted&#13;
-&#13;
-Actions:&#13;
-Disable traceoptions&#13;
-Clean up storage&#13;
-Verify system processes</description>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxOperatingBuffer.9.1.0.0.min(30)}&gt;95</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>{HOSTNAME} node 0 high RE memory usage</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description>&gt;95% Device will begin active memory clean up attempts&#13;
-&#13;
-Actions:&#13;
-Verify routing table size&#13;
-Verify System Processes in use &#13;
-Review system logs</description>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxJsSPUMonitoringCPUUsage.10.min(60)}&gt;95</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>{HOSTNAME} node 1 high PFE CPU usage</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description>&gt;95% Device responsiveness for transit traffic is likely to be impacted including session buildup&#13;
-&#13;
-Actions:&#13;
-Review Traffic pattern&#13;
-Review PPS&#13;
-Review Session&#13;
-counts</description>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxJsSPUMonitoringMemoryUsage.10.min(30)}&gt;95</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>{HOSTNAME} node 1 high PFE memory usage</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description>&gt;95%  Transit traffic may be impacted due to inability for forwarding operations&#13;
-&#13;
-Actions:&#13;
-Review system logs&#13;
-Verify configuration for unused features that be removed&#13;
-Disable non needed ALGs</description>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxOperatingCPU.9.2.0.0.min(60)}&gt;95</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>{HOSTNAME} node 1 high RE CPU usage</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description>&gt;95% Device responsiveness for self traffic is likely to be impacted&#13;
-&#13;
-Actions:&#13;
-Disable traceoptions&#13;
-Clean up storage&#13;
-Verify system processes</description>
-            <type>0</type>
-            <manual_close>0</manual_close>
-            <dependencies/>
-            <tags/>
-        </trigger>
-        <trigger>
-            <expression>{Custom - HW - Juniper SRX:jnxOperatingBuffer.9.2.0.0.min(30)}&gt;95</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
-            <name>{HOSTNAME} node 1 high RE memory usage</name>
-            <correlation_mode>0</correlation_mode>
-            <correlation_tag/>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description>&gt;95% Device will begin active memory clean up attempts&#13;
-&#13;
-Actions:&#13;
-Verify routing table size&#13;
-Verify System Processes in use &#13;
-Review system logs</description>
             <type>0</type>
             <manual_close>0</manual_close>
             <dependencies/>
